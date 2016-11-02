@@ -1,18 +1,20 @@
 {
   "name": "eum-utilities",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Utility functions to help with AppD EUM load in demo environment",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/jasmine-node test"
+    "test": "./node_modules/jasmine/bin/jasmine.js"
   },
   "author": "rbolton@appdynamics.com",
   "license": "ISC",
   "dependencies": {
     "ip-address": "^5.8.0",
-    "lodash": "^4.11.0"
+    "lodash": "^4.11.0",
+    "request": "^2.75.0"
   },
   "devDependencies": {
-    "jasmine-node": "^1.14.5"
+    "jasmine": "^2.5.2",
+    "nock": "^8.1.0"
   }
 }

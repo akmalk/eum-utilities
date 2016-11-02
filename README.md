@@ -3,23 +3,14 @@ Bundle of utility functions to help with AppD EUM load in demo environment
 
 ## Functions
 
-### correlationHeaders(headers)
+Various functions used to generate mobile and browser load
 
-Pass in normal header object from a response in node.js and will loop through and parse out AppDynamics headers related to e2e correlation. 
+## Unit Testing
 
-### getRandomIpFromCountry(country)
+Run npm install to get jasmine (js testing framework), and then run npm test. All unit tests are located in the spec directory.
 
-Pass in a country (e.g. United States), and get a random IP address that will be mapped to United States by geoip mapping databases. Note, the IP addresses are not updated/tested regularly, and may become stale. 
+## End to End (e2e) Testing
 
-### getRandomIp(start, end)
+e2e testing also relies on jasmine, and focuses on "live" scenarios, like POSTing a mobile beacon to a real EUM collector, or parsing out correlation headers from an application server running AppDynamics APM. This can be useful for troubleshooting issues, and validating new components (new Java agent, new version of EUM collector) don't break things.
 
-Pass in two ip addresses, and get an IP address that falls between the two. E.g. getRandomIp('101.16.0.0','101.31.255.255') could return 101.18.0.12, but would not return 102.18.0.12.
-
-### getCountriesMappedByIp
-
-Get list of countries currently mapped to IP addresses - e.g. only countries in this list can be used with the function getRandomIpFromCountry.
-
-## Testing
-
-Run npm install to get jasmine (js testing framework), and then run npm test.
-
+To run a test, from the main directory, use something like ./node_modules/jasmine/bin/jasmine.js e2e/requestPageECommerce-e2e-spec.js
